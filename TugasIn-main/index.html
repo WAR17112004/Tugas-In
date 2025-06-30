@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TugasIn — Biar Kami yang Kerjain, Kamu Tinggal Nyantai</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <style>
+        .main-content {
+            flex: 1;
+        }
+        footer {
+            margin-top: auto;
+        }
+      body {
+        display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        font-family: "Poppins", sans-serif;
+        scroll-behavior: smooth;
+      }
+
+      .hero-gradient {
+        background: linear-gradient(135deg, #a8876f 0%, #5c4033 100%);
+      }
+      .service-card {
+        transition: all 0.3s ease;
+      }
+      .service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+          0 10px 10px -5px rgba(0, 0, 0, 0.04);
+      }
+      .gallery-item {
+        transition: all 0.3s ease;
+      }
+      .gallery-item:hover {
+        transform: scale(1.05);
+      }
+      .video-container {
+        position: relative;
+        padding-bottom: 56.25%;
+        height: 0;
+        overflow: hidden;
+        border-radius: 12px;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+      .video-container iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      .floating {
+        animation: floating 3s ease-in-out infinite;
+      }
+      @keyframes floating {
+        0% {
+          transform: translateY(0px);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+        100% {
+          transform: translateY(0px);
+        }
+      }
+      .social-icon {
+        transition: all 0.3s ease;
+      }
+      .social-icon:hover {
+        transform: translateY(-3px);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 min-h-screen flex flex-col">
+  <!-- Header/Navbar --> 
+  <header class="bg-white shadow-sm sticky top-0 z-50">
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex items-center">
+      <img
+        src="logo.jpg"
+        alt="Logo DokumenKuRapi"
+        class="w-10 h-10 rounded-full mr-2 animate__animated animate__bounceIn object-cover"
+      />
+      <span class="text-xl font-bold" style="color: #4B3621;">
+        Tugas<span style="color: #A67B5B;">In</span>
+      </span>
+    </div>
+
+    <nav class="hidden md:flex space-x-8">
+      <a href="#layanan" class="text-gray-600 hover:text-[#A67B5B] transition duration-300">Layanan</a>
+      <a href="#keunggulan" class="text-gray-600 hover:text-[#A67B5B] transition duration-300">Keunggulan</a>
+      <a href="#galeri" class="text-gray-600 hover:text-[#A67B5B] transition duration-300">Galeri</a>
+      <a href="#testimoni" class="text-gray-600 hover:text-[#A67B5B] transition duration-300">Testimoni</a>
+      <a href="#cara-order" class="text-gray-600 hover:text-[#A67B5B] transition duration-300">FAQ</a>
+    </nav>
+
+    <button
+      id="menu-toggle"
+      class="bg-amber-700 hover:bg-amber-800 text-white px-4 py-2 rounded-full font-medium transition duration-300 md:hidden transform hover:scale-105"
+
+    >
+      Menu
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden md:hidden px-4 pb-4 space-y-2">
+    <a href="#layanan" class="block text-gray-600 hover:text-[#A67B5B] transition duration-300">Layanan</a>
+    <a href="#keunggulan" class="block text-gray-600 hover:text-[#A67B5B] transition duration-300">Keunggulan</a>
+    <a href="#galeri" class="block text-gray-600 hover:text-[#A67B5B] transition duration-300">Galeri</a>
+    <a href="#testimoni" class="block text-gray-600 hover:text-[#A67B5B] transition duration-300">Testimoni</a>
+    <a href="#cara-order" class="block text-gray-600 hover:text-[#A67B5B] transition duration-300">FAQ</a>
+  </nav>
+</header>
+
+<!-- Tambahkan ini di bawah sebelum </body> -->
+<script>
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const menuLinks = mobileMenu.querySelectorAll("a");
+
+  menuToggle.addEventListener("click", () => {
+    mobileMenu.classList.toggle("hidden");
+  });
+
+  menuLinks.forEach(link => {
+    link.addEventListener("click", () => {
+      mobileMenu.classList.add("hidden");
+    });
+  });
+</script>
+</header>
+
+
+    <!-- Hero Section -->
+    <section class="hero-gradient text-white py-16 md:py-24">
+      <div
+        class="container mx-auto px-4 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 animate__animated animate__fadeInDown"
+          >
+            Bingung Ngerjain Tugas? TugasIn Aja! ✨
+          </h1>
+          <p class="text-lg md:text-xl mb-4 opacity-90 animate__animated animate__fadeIn animate__delay-1s">
+            Temukan mitra profesional yang siap bantu tugas kamu 
+          </p>
+          <p class="text-lg md:text-xl mb-8 opacity-90 animate__animated animate__fadeIn animate__delay-2s">
+            — Cepat, aman, dan terpercaya.
+          </p>
+          
+          <div
+            class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 animate__animated animate__fadeInUp animate__delay-1s"
+          >
+            <a
+              href="#kontak"
+              class="bg-white text-[#A67B5B] hover:text-[#5c4033] px-6 py-3 rounded-full font-semibold text-center transition duration-300 transform hover:scale-105 shadow-lg"
+              >Pesan Layanan Sekarang</a
+            >
+            <a
+              href="#video"
+              class="border-2 border-white hover:bg-white hover:text-cyan-600 px-6 py-3 rounded-full font-semibold text-center transition duration-300 transform hover:scale-105 flex items-center justify-center"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-5 w-5 mr-2"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  d="M2 6a2 2 0 012-2h6a2 2 0 012 2v8a2 2 0 01-2 2H4a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v8a2 2 0 01-2 2h-2a2 2 0 01-2-2V6z"
+                />
+              </svg>
+              Lihat Video
+            </a>
+          </div>
+        </div>
+        <div class="md:w-1/2 flex justify-center floating">
+          <img
+            src="https://illustrations.popsy.co/orange/taking-notes.svg"
+            alt="Ilustrasi Jasa Dokumen"
+            class="w-full max-w-md animate__animated animate__fadeInRight"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- Video Penjelasan -->
+    <section id="video" class="py-16 bg-white" data-aos="fade-up">
+      <div class="container mx-auto px-4">
+        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+          Lihat Cara Kami Bekerja
+        </h2>
+        <div class="flex flex-wrap gap-6 justify-center">
+          <!-- Video 1 -->
+          <div class="video-thumb w-64">
+            <img
+              src="https://img.youtube.com/vi/q7kK2fbca2k/hqdefault.jpg"
+              alt="YouTube Shorts"
+              class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer"
+              onclick="playVideo(this, 'q7kK2fbca2k')"
+            >
+          </div>
+        
+          <!-- Video 2 -->
+          <div class="video-thumb w-64">
+            <img
+              src="https://img.youtube.com/vi/Yxn4cg4RuSs/hqdefault.jpg"
+              alt="YouTube Shorts"
+              class="rounded-lg shadow-md hover:opacity-80 transition cursor-pointer"
+              onclick="playVideo(this, 'Yxn4cg4RuSs')"
+            >
+          </div>
+        </div>
+        
+        <script>
+          function playVideo(imgElement, videoId) {
+            const iframe = document.createElement("iframe");
+            iframe.setAttribute("src", `https://www.youtube.com/embed/${videoId}?autoplay=1`);
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allow", "autoplay; encrypted-media");
+            iframe.setAttribute("allowfullscreen", "");
+            iframe.className = "rounded-lg shadow-md w-full aspect-video";
+            
+            imgElement.parentNode.replaceChild(iframe, imgElement);
+          }
+        </script>
+        
+        
+      </div>
+    </section>
+
+    <!-- Layanan Section -->
+    <section id="layanan" class="py-16 bg-gray-50">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center text-gray-800 mb-12"
+          data-aos="fade-up"
+        >
+          Layanan Kami
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <!-- Jasa Ketik -->
+          <div
+            class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border border-gray-100"
+            data-aos="fade-up"
+            data-aos-delay="100"
+          >
+            <div
+              class="w-12 h-12 bg-cyan-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-cyan-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">
+              Jasa Ketik Dokumen
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Cepat, rapi, & sesuai format yang Anda butuhkan. Skripsi, makalah,
+              atau dokumen penting lainnya.
+            </p>
+            <img
+              src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Jasa Ketik Dokumen"
+              class="rounded-lg w-full h-40 object-cover"
+            />
+          </div>
+
+          <!-- Pengerjaan Tugas -->
+          <div
+            class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border border-gray-100"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-blue-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">
+              Pengerjaan Tugas
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Makalah, laporan, essay, dan berbagai jenis tugas akademik dengan
+              kualitas terjamin.
+            </p>
+            <img
+              src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Pengerjaan Tugas"
+              class="rounded-lg w-full h-40 object-cover"
+            />
+          </div>
+
+          <!-- Desain -->
+          <div
+            class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border border-gray-100"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div
+              class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-purple-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">
+              Desain Poster & PPT
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Visual menarik dan profesional, siap untuk presentasi atau promosi
+              bisnis Anda.
+            </p>
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Desain Poster"
+              class="rounded-lg w-full h-40 object-cover"
+            />
+          </div>
+
+          <!-- Turnitin -->
+          <div
+            class="service-card bg-white rounded-xl shadow-md p-6 transition duration-300 border border-gray-100"
+            data-aos="fade-up"
+            data-aos-delay="400"
+          >
+            <div
+              class="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center mb-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6 text-green-500"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+                />
+              </svg>
+            </div>
+            <h3 class="text-xl font-semibold mb-2 text-gray-800">
+              Cek Turnitin/Plagiarisme
+            </h3>
+            <p class="text-gray-600 mb-4">
+              Pastikan dokumen Anda 100% original dan bebas plagiat sebelum
+              dikumpulkan.
+            </p>
+            <img
+              src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Cek Plagiarisme"
+              class="rounded-lg w-full h-40 object-cover"
+            />
+          </div>
+        </div>
+        <div class="text-center mt-12" data-aos="fade-up">
+          <a
+            href="#kontak"
+            class="bg-[#A67B5B] hover:bg-[#5C4033] text-white px-6 py-3 rounded-full font-semibold inline-block transition duration-300 transform hover:scale-105 shadow-lg"
+            >Butuh Bantuan? Hubungi Kami!</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeri Section -->
+    <section id="galeri" class="py-16 bg-white">
+      <div class="container mx-auto px-4">
+        <h2
+          class="text-3xl font-bold text-center text-gray-800 mb-12"
+          data-aos="fade-up"
+        >
+          Galeri Hasil Kerja Kami
+        </h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            class="gallery-item overflow-hidden rounded-xl shadow-md"
+            data-aos="zoom-in"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Dokumen Rapih"
+              class="w-full h-64 object-cover hover:opacity-90 transition duration-300"
+            />
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800">Dokumen Akademik</h3>
+              <p class="text-sm text-gray-600">Format rapih sesuai standar</p>
+            </div>
+          </div>
+          <div
+            class="gallery-item overflow-hidden rounded-xl shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1496065187959-7f07b8353c55?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Slide Presentasi"
+              class="w-full h-64 object-cover hover:opacity-90 transition duration-300"
+            />
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800">Slide Presentasi</h3>
+              <p class="text-sm text-gray-600">
+                Desain profesional dan menarik
+              </p>
+            </div>
+          </div>
+          <div
+            class="gallery-item overflow-hidden rounded-xl shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1542626991-cbc4e32524cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Poster"
+              class="w-full h-64 object-cover hover:opacity-90 transition duration-300"
+            />
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800">Poster Digital</h3>
+              <p class="text-sm text-gray-600">Visual impact yang kuat</p>
+            </div>
+          </div>
+          <div
+            class="gallery-item overflow-hidden rounded-xl shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Infografis"
+              class="w-full h-64 object-cover hover:opacity-90 transition duration-300"
+            />
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800">Infografis</h3>
+              <p class="text-sm text-gray-600">
+                Data kompleks disajikan sederhana
+              </p>
+            </div>
+          </div>
+          <div
+            class="gallery-item overflow-hidden rounded-xl shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Laporan"
+              class="w-full h-64 object-cover hover:opacity-90 transition duration-300"
+            />
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800">Laporan Bisnis</h3>
+              <p class="text-sm text-gray-600">
+                Profesional dan mudah dipahami
+              </p>
+            </div>
+          </div>
+          <div
+            class="gallery-item overflow-hidden rounded-xl shadow-md"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
+              alt="Skripsi"
+              class="w-full h-64 object-cover hover:opacity-90 transition duration-300"
+            />
+            <div class="p-4 bg-white">
+              <h3 class="font-semibold text-gray-800">Skripsi & Tesis</h3>
+              <p class="text-sm text-gray-600">Format akademik sempurna</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      <!-- Keunggulan Section -->
+<section id="keunggulan" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-4" data-aos="fade-up">
+        Kenapa Pilih TugasIn?
+      </h2>
+      <p class="text-lg text-center text-gray-600 mb-12 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        Semua mitra telah melalui proses seleksi, aman dan bisa diandalkan.
+      </p>
+  
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- 1 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="200">
+          <div class="text-[#5C4033] mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Profesional</h3>
+          <p class="text-gray-600">Tim berpengalaman di bidangnya siap membantu menyelesaikan pekerjaan Anda.</p>
+        </div>
+  
+        <!-- 2 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="300">
+          <div class="text-[#5C4033] mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Tepat Waktu</h3>
+          <p class="text-gray-600">Kami menjamin penyelesaian dokumen sesuai deadline Anda.</p>
+        </div>
+  
+        <!-- 3 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="400">
+          <div class="text-[#5C4033] mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.104.896-2 2-2s2 .896 2 2-.896 2-2 2-2-.896-2-2zm-6 0c0-1.104.896-2 2-2s2 .896 2 2-.896 2-2 2-2-.896-2-2zM4 19h16M4 15h16" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Harga Terjangkau</h3>
+          <p class="text-gray-600">Layanan berkualitas dengan harga yang bersahabat dan transparan.</p>
+        </div>
+  
+        <!-- 4 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="500">
+          <div class="text-[#5C4033] mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 17v-2a2 2 0 00-2-2H5a2 2 0 00-2 2v2m6-2v-2a2 2 0 00-2-2H5m12 4v-2a2 2 0 00-2-2h-2a2 2 0 00-2 2v2m6-2v-2a2 2 0 00-2-2h-2" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Privasi Terjamin</h3>
+          <p class="text-gray-600">Data dan dokumen Anda dijaga kerahasiaannya dengan sistem keamanan kami.</p>
+        </div>
+  
+        <!-- 5 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="600">
+          <div class="text-[#5C4033] mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-6a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Respon Cepat</h3>
+          <p class="text-gray-600">Kami siap merespons kebutuhan Anda secepat mungkin melalui berbagai platform.</p>
+        </div>
+  
+        <!-- 6 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="700">
+          <div class="text-[#5C4033] mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h11M9 21V3m4 18V3m4 0v18M7 14h10" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Format Lengkap</h3>
+          <p class="text-gray-600">Dukungan untuk berbagai format file seperti PDF, Word, Excel, dan lainnya.</p>
+        </div>
+  
+        <!-- 7 -->
+        <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 hover:shadow-lg transition duration-300" data-aos="fade-up" data-aos-delay="800">
+          <div class="text-[#5C4033] mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7h18M3 12h18M3 17h18" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-2 text-gray-800">Layanan Fleksibel</h3>
+          <p class="text-gray-600">Dapat menyesuaikan kebutuhan khusus dokumen pribadi, bisnis, atau akademik.</p>
+        </div>
+    </section>
+
+
+<!-- Testimoni -->
+<section id="testimoni" class="py-16 bg-gray-100">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">
+        Apa Kata Pelanggan Kami
+      </h2>
+      <div class="grid md:grid-cols-2 gap-8" data-aos="fade-up" data-aos-delay="100">
+        <div class="bg-white p-6 rounded-lg shadow">
+          <p class="italic mb-4">
+            "TugasIn bantu tugas kuliahku selesai dalam 1 hari! Hasilnya rapi dan anti plagiat. Recommended banget!"
+          </p>
+          <h4 class="font-semibold">– Andi, Mahasiswa Manajemen</h4>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow">
+          <p class="italic mb-4">
+            "Pengerjaan cepat, hasilnya sangat memuaskan. Saya bahkan dapat revisi 3 kali gratis!"
+          </p>
+          <h4 class="font-semibold">– Rina, Mahasiswa Geografi</h4>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- Cara Order -->
+<section id="cara-order" class="py-16 bg-gray-50">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-12 text-gray-800" data-aos="fade-up">
+        Cara Order di <span class="text-[#5C4033]">TugasIn</span>
+      </h2>
+      <!-- Baris pertama: 3 kotak -->
+<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-10" data-aos="fade-up" data-aos-delay="100">
+  <!-- Step 1 -->
+  <div class="bg-white shadow-md rounded-xl p-6 text-center">
+    <div class="text-4xl mb-4 text-blue-600">📞</div>
+    <h3 class="font-semibold text-lg mb-2">Hubungi Kami</h3>
+    <p class="text-sm text-gray-600">Melalui Whatsapp bot dan chatmu akan dibalas dengan segera.</p>
+  </div>
+
+  <!-- Step 2 -->
+  <div class="bg-white shadow-md rounded-xl p-6 text-center">
+    <div class="text-4xl mb-4 text-blue-600">⭐</div>
+    <h3 class="font-semibold text-lg mb-2">Rekomendasi Mitra</h3>
+    <p class="text-sm text-gray-600">Kami akan menyarankan mitra terbaik sesuai kebutuhanmu.</p>
+  </div>
+
+  <!-- Step 3 -->
+  <div class="bg-white shadow-md rounded-xl p-6 text-center">
+    <div class="text-4xl mb-4 text-blue-600">📤</div>
+    <h3 class="font-semibold text-lg mb-2">Kirim Detail</h3>
+    <p class="text-sm text-gray-600">Ceritakan tugasmu: format, deadline, & permintaan khusus kepada mitra yang sudah direkomendasikan.</p>
+  </div>
+</div>
+
+<!-- Baris kedua: 2 kotak di tengah -->
+<div class="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="200">
+  <!-- Step 4 -->
+  <div class="bg-white shadow-md rounded-xl p-6 text-center">
+    <div class="text-4xl mb-4 text-blue-600">🛠️</div>
+    <h3 class="font-semibold text-lg mb-2">Pengerjaan</h3>
+    <p class="text-sm text-gray-600">Tim mitra mulai mengerjakan tugas sesuai kebutuhanmu.</p>
+  </div>
+
+  <!-- Step 5 -->
+  <div class="bg-white shadow-md rounded-xl p-6 text-center">
+    <div class="text-4xl mb-4 text-blue-600">✅</div>
+    <h3 class="font-semibold text-lg mb-2">Dokumen Siap!</h3>
+    <p class="text-sm text-gray-600">Periksa hasilnya. Revisi gratis 3 kali.</p>
+  </div>
+</div>
+
+  
+      <!-- CTA -->
+      <div class="text-center mt-12" data-aos="fade-up" data-aos-delay="200">
+        <a href="#kontak" class="bg-[#8B4513] hover:bg-[#5C3317] text-white px-8 py-4 rounded-full text-lg transition">
+          📲 Yuk, Konsultasi Gratis!
+        </a>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- Kontak -->
+  <section id="kontak" class="py-16 bg-white">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-10" data-aos="fade-up">
+        Hubungi TugasIn
+      </h2>
+      <div class="text-center max-w-xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+        <p class="mb-4 text-lg">Jangan biarkan tugas menumpuk. Konsultasi sekarang juga!</p>
+        <div class="space-y-4">
+          <a href="https://wa.me/6285183081642" target="_blank" class="bg-[#8B4513] hover:bg-[#5C3317] text-white px-8 py-4 rounded-full text-lg transition">
+            📞 Chat via WhatsApp Bot
+          </a>
+          <p>📧 Email: <a href="mailto:TugasIn@email.com" class="text-blue-600 hover:underline">TugasIn@email.com</a></p>
+          <p>🌐 Instagram: <a href="https://instagram.com/TugasIn" target="_blank" class="text-blue-600 hover:underline">@TugasIn</a></p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer class="hero-gradient text-white py-8">
+    <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div>
+                <h3 class="text-xl font-bold mb-4">TugasIn</h3>
+                <p class="text-white-400">Solusi profesional untuk kebutuhan dokumen dan tugas akademik Anda.</p>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Layanan</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="text-white-400 hover:text-white">Jasa Ketik Dokumen</a></li>
+                    <li><a href="#" class="text-white-400 hover:text-white">Pengerjaan Tugas</a></li>
+                    <li><a href="#" class="text-white-400 hover:text-white">Desain Presentasi</a></li>
+                    <li><a href="#" class="text-white-400 hover:text-white">Cek Plagiarisme</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Kontak</h4>
+                <ul class="space-y-2 text-white-400">
+                    <li>Email: TugasIn@email.com</li>
+                    <li>WhatsApp: 0851-8308-1642</li>
+                </ul>
+            </div>
+            <div>
+                <h4 class="font-semibold mb-4">Sosial Media</h4>
+                <div class="flex space-x-4">
+                    <a href="#" class="text-white-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd"></path>
+                        </svg>
+                    </a>
+                    <a href="https://wa.me/6281234567890" target="_blank" class="text-white-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 448 512">
+                        <path
+                            d="M380.9 97.1C339-17.9 197.5-32.5 104.6 60.4 45.3 119.7 26.7 204.2 51.7 278.4L24 384l109.6-27.2c71.5 39.6 162.8 29.2 222.1-30.1 69.1-69.2 69.2-181.3.1-250.6zM241.7 354c-51.3 0-93.3-31.1-110.2-74.4-3.3-8.3-.3-17.8 7.5-21.6l36.3-18c7.5-3.7 16.4-1.3 20.6 5.3l17.6 27.7c2.4 3.8 6.3 6.3 10.8 6.6 11.7.8 39.1-13.4 56.1-30.3 17-17 30.2-44.4 29.3-56.1-.3-4.5-2.8-8.3-6.6-10.8L291 133.6c-6.6-4.3-9-13.1-5.3-20.6l18-36.3c3.8-7.8 13.3-10.8 21.6-7.5 43.4 16.9 74.5 58.9 74.5 110.2 0 77.2-62.7 140-140 140z" />
+                        </svg>
+                    </a>
+                    <a href="TugasIn@email.com" class="text-white-400 hover:text-white">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                        <path
+                            d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="border-t border-gray-700 mt-8 pt-6 text-sm text-white-400 text-center">
+            <p>© 2025 TugasIn. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+  
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+      AOS.init();
+    </script>
+  </body>
+</html>
